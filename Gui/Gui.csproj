@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{614DB958-BA8E-471C-9818-DF18551A8590}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Gui</RootNamespace>
+    <AssemblyName>Gui</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ServiceStack.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Client.5.7.0\lib\net45\ServiceStack.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.HttpClient, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.HttpClient.5.7.0\lib\net45\ServiceStack.HttpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.5.7.0\lib\net45\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.5.7.0\lib\net45\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=4.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.7.1\lib\net45\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExcelExporter\ExcelExporter.cs" />
+    <Compile Include="ExcelExporter\IExcelExporter.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Extensions\DataGridViewExtensions.cs" />
+    <Compile Include="Extensions\ComboBoxExtensions.cs" />
+    <Compile Include="Extensions\TextBoxExtensions.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TradingEquipmentMovementReport\ITradingEquipmentMovementReportPresenter.cs" />
+    <Compile Include="Modules\TradingEquipmentMovementReport\ITradingEquipmentMovementReportView.cs" />
+    <Compile Include="Modules\TradingEquipmentMovementReport\ReportEntry.cs" />
+    <Compile Include="Modules\TradingEquipmentMovementReport\TradingEquipmentMovementReportPresenter.cs" />
+    <Compile Include="Modules\TradingEquipmentMovementReport\TradingEquipmentMovementReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\TradingEquipmentMovementReport\TradingEquipmentMovementReportView.Designer.cs">
+      <DependentUpon>TradingEquipmentMovementReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TradingEquipmentReport\ReportEntry.cs" />
+    <Compile Include="Modules\TradingEquipmentReport\TradingEquipmentReportPresenter.cs" />
+    <Compile Include="Modules\TradingEquipmentReport\TradingEquipmentReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\TradingEquipmentReport\TradingEquipmentReportView.Designer.cs">
+      <DependentUpon>TradingEquipmentReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TradingEquipmentReport\ITradingEquipmentReportPresenter.cs" />
+    <Compile Include="Modules\TradingEquipmentReport\ITradingEquipmentReportView.cs" />
+    <Compile Include="Modules\IEntityPresenter.cs" />
+    <Compile Include="Modules\IView.cs" />
+    <Compile Include="Modules\EquipmentType\IEquipmentTypePresenter.cs" />
+    <Compile Include="Modules\EquipmentType\IEquipmentTypeView.cs" />
+    <Compile Include="Modules\EquipmentType\EquipmentTypeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\EquipmentType\EquipmentTypeDialog.Designer.cs">
+      <DependentUpon>EquipmentTypeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\EquipmentType\EquipmentTypePresenter.cs" />
+    <Compile Include="Modules\EquipmentType\EquipmentTypeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\EquipmentType\EquipmentTypeView.Designer.cs">
+      <DependentUpon>EquipmentTypeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MoveTradingEquipment\IMoveTradingEquipmentPresenter.cs" />
+    <Compile Include="Modules\MoveTradingEquipment\IMoveTradingEquipmentView.cs" />
+    <Compile Include="Modules\MoveTradingEquipment\MoveTradingEquipmentPresenter.cs" />
+    <Compile Include="Modules\MoveTradingEquipment\MoveTradingEquipmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\MoveTradingEquipment\MoveTradingEquipmentView.Designer.cs">
+      <DependentUpon>MoveTradingEquipmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\MoveTradingEquipment\TradingEquipmentDisplayInfo.cs" />
+    <Compile Include="Modules\RegisterTradingEquipment\IRegisterTradingEquipmentPresenter.cs" />
+    <Compile Include="Modules\RegisterTradingEquipment\IRegisterTradingEquipmentView.cs" />
+    <Compile Include="Modules\RegisterTradingEquipment\RegisterTradingEquipmentPresenter.cs" />
+    <Compile Include="Modules\RegisterTradingEquipment\RegisterTradingEquipmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\RegisterTradingEquipment\RegisterTradingEquipmentView.Designer.cs">
+      <DependentUpon>RegisterTradingEquipmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TradingEquipmentModel\ITradingEquipmentModelPresenter.cs" />
+    <Compile Include="Modules\TradingEquipmentModel\ITradingEquipmentModelView.cs" />
+    <Compile Include="Modules\TradingEquipmentModel\TradingEquipmentModelDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\TradingEquipmentModel\TradingEquipmentModelDialog.Designer.cs">
+      <DependentUpon>TradingEquipmentModelDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\TradingEquipmentModel\TradingEquipmentModelPresenter.cs" />
+    <Compile Include="Modules\TradingEquipmentModel\TradingEquipmentModelDisplayInfo.cs" />
+    <Compile Include="Modules\TradingEquipmentModel\TradingEquipmentModelView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\TradingEquipmentModel\TradingEquipmentModelView.Designer.cs">
+      <DependentUpon>TradingEquipmentModelView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Provider\IProviderPresenter.cs" />
+    <Compile Include="Modules\Provider\IProviderView.cs" />
+    <Compile Include="Modules\Provider\ProviderPresenter.cs" />
+    <Compile Include="Modules\Provider\ProviderDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Provider\ProviderDialog.Designer.cs">
+      <DependentUpon>ProviderDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Provider\ProviderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Provider\ProviderView.Designer.cs">
+      <DependentUpon>ProviderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Producer\IProducerPresenter.cs" />
+    <Compile Include="Modules\Producer\IProducerView.cs" />
+    <Compile Include="Modules\Producer\ProducerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Producer\ProducerDialog.Designer.cs">
+      <DependentUpon>ProducerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Producer\ProducerPresenter.cs" />
+    <Compile Include="Modules\Producer\ProducerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Producer\ProducerView.Designer.cs">
+      <DependentUpon>ProducerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Location\LocationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Location\LocationDialog.Designer.cs">
+      <DependentUpon>LocationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Location\LocationView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Location\LocationView.Designer.cs">
+      <DependentUpon>LocationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Location\ILocationPresenter.cs" />
+    <Compile Include="Modules\Location\ILocationView.cs" />
+    <Compile Include="Modules\Location\LocationPresenter.cs" />
+    <Compile Include="Modules\View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportExporter\ReportExporter.cs" />
+    <Compile Include="ReportExporter\IReportExporter.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\IEquipmentTypeService.cs" />
+    <Compile Include="Services\ITradingEquipmentMovementService.cs" />
+    <Compile Include="Services\ITradingEquipmentService.cs" />
+    <Compile Include="Services\ITradingEquipmentModelService.cs" />
+    <Compile Include="Services\IProviderService.cs" />
+    <Compile Include="Services\IProducerService.cs" />
+    <Compile Include="Services\EquipmentTypeService.cs" />
+    <Compile Include="Services\TradingEquipmentMovementService.cs" />
+    <Compile Include="Services\TradingEquipmentService.cs" />
+    <Compile Include="Services\TradingEquipmentModelService.cs" />
+    <Compile Include="Services\ProviderService.cs" />
+    <Compile Include="Services\ProducerService.cs" />
+    <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Services\ILocationService.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\TradingEquipmentMovementReport\TradingEquipmentMovementReportView.resx">
+      <DependentUpon>TradingEquipmentMovementReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\TradingEquipmentReport\TradingEquipmentReportView.resx">
+      <DependentUpon>TradingEquipmentReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EquipmentType\EquipmentTypeDialog.resx">
+      <DependentUpon>EquipmentTypeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\EquipmentType\EquipmentTypeView.resx">
+      <DependentUpon>EquipmentTypeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\MoveTradingEquipment\MoveTradingEquipmentView.resx">
+      <DependentUpon>MoveTradingEquipmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\RegisterTradingEquipment\RegisterTradingEquipmentView.resx">
+      <DependentUpon>RegisterTradingEquipmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\TradingEquipmentModel\TradingEquipmentModelDialog.resx">
+      <DependentUpon>TradingEquipmentModelDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\TradingEquipmentModel\TradingEquipmentModelView.resx">
+      <DependentUpon>TradingEquipmentModelView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Provider\ProviderDialog.resx">
+      <DependentUpon>ProviderDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Provider\ProviderView.resx">
+      <DependentUpon>ProviderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Producer\ProducerDialog.resx">
+      <DependentUpon>ProducerDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Producer\ProducerView.resx">
+      <DependentUpon>ProducerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Location\LocationDialog.resx">
+      <DependentUpon>LocationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Location\LocationView.resx">
+      <DependentUpon>LocationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Shared.LocationInfo.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{e279a285-754e-4c16-9ffe-ef25719ea8b9}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
